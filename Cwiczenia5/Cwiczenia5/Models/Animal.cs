@@ -1,5 +1,3 @@
-using System.Drawing;
-
 namespace Cwiczenia5.Models;
 
 public class Animal

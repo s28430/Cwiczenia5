@@ -1,3 +1,6 @@
+using Cwiczenia5.Repositories;
+using Cwiczenia5.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -5,6 +8,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllers().AddXmlSerializerFormatters();
+builder.Services.AddScoped<IAnimalRepository, MockAnimalRepository>();
+builder.Services.AddScoped<IAnimalService, AnimalService>();
 
 var app = builder.Build();
 
