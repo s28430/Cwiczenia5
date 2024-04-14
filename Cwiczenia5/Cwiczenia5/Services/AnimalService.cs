@@ -19,4 +19,14 @@ public class AnimalService(IAnimalRepository animalRepository) : IAnimalService
     {
         animalRepository.AddAnimal(animal);
     }
+
+    public bool RemoveAnimal(int id)
+    {
+        return animalRepository.RemoveAnimal(id);
+    }
+
+    public bool UpdateAnimal(int id, Animal newAnimal)
+    {
+        return animalRepository.UpdateAnimal(id, newAnimal);
+    }
 }

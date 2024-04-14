@@ -30,4 +30,20 @@ public class Animal
         Weight = weight;
         SkinColor = skinColor;
     }
+
+    public override bool Equals(object? obj)
+    {
+        if (obj == null) return false;
+        if (this == obj) return true;
+        if (GetType() != obj.GetType()) return false;
+        
+        var another = (Animal)obj;
+        
+        return Id == another.Id;
+    }
+
+    public override int GetHashCode()
+    {
+        return Id.GetHashCode();
+    }
 }

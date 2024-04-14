@@ -26,11 +26,16 @@ public class AnimalController(IAnimalService animalService) : ControllerBase
     [HttpPost]
     public IActionResult CreateAnimal(Animal animal)
     {
-        if (!ModelState.IsValid)
-        {
-            return BadRequest(ModelState);
-        }
         animalService.AddAnimal(animal);
         return StatusCode(StatusCodes.Status201Created);
+    }
+
+    [HttpPut("{id:int}")]
+    public IActionResult UpdateAnimal(int id, [FromBody] Animal newAnimal)
+    {
+        var animalToEdit = animalService.GetAnimalById(id);
+        if (animalToEdit == null) return NotFound($"Animal with id {id} was not found");
+        var result = animalService.UpdateAnimal(id, newAnimal);
+        return StatusCode(result ? StatusCodes.Status204NoContent : StatusCodes.Status400BadRequest);
     }
 }
