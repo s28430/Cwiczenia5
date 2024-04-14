@@ -14,4 +14,9 @@ public class AnimalService(IAnimalRepository animalRepository) : IAnimalService
     {
         return animalRepository.GetAnimalById(id);
     }
+
+    public void AddAnimal(Animal animal)
+    {
+        animalRepository.AddAnimal(animal);
+    }
 }

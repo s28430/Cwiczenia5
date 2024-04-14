@@ -1,3 +1,4 @@
+using Cwiczenia5.Models;
 using Cwiczenia5.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -20,5 +21,16 @@ public class AnimalController(IAnimalService animalService) : ControllerBase
         var animal = animalService.GetAnimalById(id);
         if (animal == null) return NotFound($"Animal with id {id} was not found");
         return Ok(animal);
+    }
+
+    [HttpPost]
+    public IActionResult CreateAnimal(Animal animal)
+    {
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+        animalService.AddAnimal(animal);
+        return StatusCode(StatusCodes.Status201Created);
     }
 }

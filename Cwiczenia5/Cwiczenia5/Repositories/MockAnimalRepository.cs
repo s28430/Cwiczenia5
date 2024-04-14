@@ -1,5 +1,4 @@
 using Cwiczenia5.Models;
-using Microsoft.AspNetCore.Mvc;
 
 namespace Cwiczenia5.Repositories;
 
@@ -20,5 +19,10 @@ public class MockAnimalRepository : IAnimalRepository
     public Animal? GetAnimalById(int id)
     {
         return Animals.Find(animal => animal.Id == id);
+    }
+
+    public void AddAnimal(Animal animal)
+    {
+        Animals.Add(animal);
     }
 }
