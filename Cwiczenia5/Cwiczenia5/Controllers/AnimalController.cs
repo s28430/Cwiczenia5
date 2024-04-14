@@ -38,4 +38,12 @@ public class AnimalController(IAnimalService animalService) : ControllerBase
         var result = animalService.UpdateAnimal(id, newAnimal);
         return StatusCode(result ? StatusCodes.Status204NoContent : StatusCodes.Status400BadRequest);
     }
+
+    [HttpDelete("{id:int}")]
+    public IActionResult RemoveAnimal(int id)
+    {
+        var result = animalService.RemoveAnimal(id);
+        
+        return StatusCode(result ? StatusCodes.Status204NoContent : StatusCodes.Status400BadRequest);
+    }
 }
