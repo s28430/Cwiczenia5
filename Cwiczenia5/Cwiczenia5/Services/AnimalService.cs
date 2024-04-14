@@ -9,4 +9,9 @@ public class AnimalService(IAnimalRepository animalRepository) : IAnimalService
     {
         return animalRepository.GetAnimals();
     }
+
+    public Animal? GetAnimalById(int id)
+    {
+        return animalRepository.GetAnimalById(id);
+    }
 }

@@ -5,4 +5,5 @@ namespace Cwiczenia5.Services;
 public interface IAnimalService
 {
     IEnumerable<Animal> GetAnimals();
+    Animal? GetAnimalById(int id);
 }
