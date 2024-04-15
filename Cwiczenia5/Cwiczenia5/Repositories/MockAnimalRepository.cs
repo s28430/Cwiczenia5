@@ -28,13 +28,11 @@ public class MockAnimalRepository : IAnimalRepository
 
     public bool RemoveAnimal(int id)
     {
-        for (var i = 0; i < Animals.Count; i++)
-            if (Animals[i].Id == id)
-            {
-                Animals.RemoveAt(i);
-                return true;
-            }
-        return false;
+        var animalToRemove = Animals.FirstOrDefault(animal => animal.Id == id);
+
+        if (animalToRemove is null) return false;
+        Animals.Remove(animalToRemove);
+        return true;
     }
 
     public bool UpdateAnimal(int id, Animal newAnimal)
