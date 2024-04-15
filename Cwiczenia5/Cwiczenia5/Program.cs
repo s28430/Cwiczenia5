@@ -7,9 +7,14 @@ var builder = WebApplication.CreateBuilder(args);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
 builder.Services.AddControllers().AddXmlSerializerFormatters();
+
 builder.Services.AddScoped<IAnimalRepository, MockAnimalRepository>();
 builder.Services.AddScoped<IAnimalService, AnimalService>();
+
+builder.Services.AddScoped<IAnimalVisitsRepository, MockAnimalVisitsRepository>();
+builder.Services.AddScoped<IAnimalVisitsService, AnimalVisitsService>();
 
 var app = builder.Build();
 

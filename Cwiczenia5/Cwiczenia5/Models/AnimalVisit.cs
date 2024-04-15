@@ -10,17 +10,17 @@ public class AnimalVisit
     
     [Required]
     [Range(1, 1000)]
-    private int AnimalId { get; }
+    public int AnimalId { get; }
     
     [Required]
-    private DateTime VisitDate { get; }
+    public DateTime VisitDate { get; }
     
     [Required]
-    private string VisitDescription { get; set; }
+    public string VisitDescription { get; set; }
     
     [Required]
     [Range(1, 1000)]
-    private double VisitPrice { get; }
+    public double VisitPrice { get; }
 
     public AnimalVisit(int animalId, DateTime visitDate, string visitDescription, double visitPrice)
     {
