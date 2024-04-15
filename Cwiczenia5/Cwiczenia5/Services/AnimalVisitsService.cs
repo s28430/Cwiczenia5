@@ -14,4 +14,9 @@ public class AnimalVisitsService(IAnimalVisitsRepository animalVisitsRepository)
     {
         return animalVisitsRepository.GetAnimalVisitsByAnimalId(id);
     }
+
+    public void AddAnimalVisit(AnimalVisit animalVisit)
+    {
+        animalVisitsRepository.AddAnimalVisit(animalVisit);
+    }
 }

@@ -6,4 +6,5 @@ public interface IAnimalVisitsRepository
 {
     IEnumerable<AnimalVisit> GetAnimalVisits();
     IEnumerable<AnimalVisit> GetAnimalVisitsByAnimalId(int animalId);
+    void AddAnimalVisit(AnimalVisit visit);
 }

@@ -1,3 +1,4 @@
+using Cwiczenia5.Models;
 using Cwiczenia5.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,5 +19,12 @@ public class AnimalVisitsController(IAnimalVisitsService animalVisitsService) : 
     {
         var animalVisits = animalVisitsService.GetAnimalVisitsByAnimalId(animalId);
         return Ok(animalVisits);
+    }
+
+    [HttpPost]
+    public IActionResult AddAnimalVisit(AnimalVisit animalVisit)
+    {
+        animalVisitsService.AddAnimalVisit(animalVisit);
+        return StatusCode(StatusCodes.Status201Created);
     }
 }
