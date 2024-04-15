@@ -9,7 +9,7 @@ public class Animal
     
     [Required]
     [MaxLength(50)]
-    public string Name { get; }
+    public string Name { get; set; }
     
     [Required]
     public AnimalType AnimalType { get; set; }
@@ -18,7 +18,7 @@ public class Animal
     
     [Required]
     [MaxLength(50)]
-    public string SkinColor { get; }
+    public string SkinColor { get; set; }
     
     public Animal(string name, AnimalType animalType, double weight, string skinColor)
     {
