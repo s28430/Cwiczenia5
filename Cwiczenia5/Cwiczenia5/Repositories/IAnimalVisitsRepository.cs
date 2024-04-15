@@ -5,4 +5,5 @@ namespace Cwiczenia5.Repositories;
 public interface IAnimalVisitsRepository
 {
     IEnumerable<AnimalVisit> GetAnimalVisits();
+    IEnumerable<AnimalVisit> GetAnimalVisitsByAnimalId(int animalId);
 }

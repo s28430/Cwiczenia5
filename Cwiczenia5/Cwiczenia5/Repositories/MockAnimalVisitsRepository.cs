@@ -14,4 +14,9 @@ public class MockAnimalVisitsRepository : IAnimalVisitsRepository
     {
         return AnimalVisits;
     }
+
+    public IEnumerable<AnimalVisit> GetAnimalVisitsByAnimalId(int animalId)
+    {
+        return AnimalVisits.FindAll(visit => visit.AnimalId == animalId);
+    }
 }

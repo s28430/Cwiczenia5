@@ -12,4 +12,11 @@ public class AnimalVisitsController(IAnimalVisitsService animalVisitsService) : 
     {
         return Ok(animalVisitsService.GetAnimalVisits());
     }
+
+    [HttpGet("{animalId:int}")]
+    public IActionResult GetAnimalsVisitsForAnimal(int animalId)
+    {
+        var animalVisits = animalVisitsService.GetAnimalVisitsByAnimalId(animalId);
+        return Ok(animalVisits);
+    }
 }

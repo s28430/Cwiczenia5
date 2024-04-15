@@ -9,4 +9,9 @@ public class AnimalVisitsService(IAnimalVisitsRepository animalVisitsRepository)
     {
         return animalVisitsRepository.GetAnimalVisits();
     }
+
+    public IEnumerable<AnimalVisit> GetAnimalVisitsByAnimalId(int id)
+    {
+        return animalVisitsRepository.GetAnimalVisitsByAnimalId(id);
+    }
 }
